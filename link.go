@@ -14,6 +14,42 @@ type Link interface {
 	Type() string
 }
 
+type Flags uint
+
+const (
+	FlagUp           Flags = 1 << iota // interface is up
+	FlagBroadcast                      // interface supports broadcast access capability
+	FlagLoopback                       // interface is a loopback interface
+	FlagPointToPoint                   // interface belongs to a point-to-point link
+	FlagMulticast                      // interface supports multicast access capability
+	FlagRunning						   // interface is ready to accept data
+)
+
+var flagNames = []string{
+	"up",
+	"broadcast",
+	"loopback",
+	"pointtopoint",
+	"multicast",
+	"running",
+}
+
+func (f Flags) String() string {
+	s := ""
+	for i, name := range flagNames {
+		if f&(1<<uint(i)) != 0 {
+			if s != "" {
+				s += "|"
+			}
+			s += name
+		}
+	}
+	if s == "" {
+		s = "0"
+	}
+	return s
+}
+
 type (
 	NsPid int
 	NsFd  int
@@ -26,7 +62,7 @@ type LinkAttrs struct {
 	TxQLen       int // Transmit Queue Length
 	Name         string
 	HardwareAddr net.HardwareAddr
-	Flags        net.Flags
+	Flags        Flags
 	ParentIndex  int         // index of the parent link device
 	MasterIndex  int         // must be the index of a bridge
 	Namespace    interface{} // nil | NsPid | NsFd
