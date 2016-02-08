@@ -7,7 +7,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/vishvananda/netlink/nl"
+	"github.com/currantlabs/netlink/nl"
 )
 
 // IFA_FLAGS is a u32 attribute.

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"syscall"
 
-	"github.com/vishvananda/netlink/nl"
+	"github.com/currantlabs/netlink/nl"
 )
 
 func writeStateAlgo(a *XfrmStateAlgo) []byte {

@@ -9,7 +9,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/vishvananda/netlink/nl"
+	"github.com/currantlabs/netlink/nl"
 )
 
 var native = nl.NativeEndian()

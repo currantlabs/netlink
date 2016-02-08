@@ -11,7 +11,7 @@ package netlink
 import (
 	"net"
 
-	"github.com/vishvananda/netlink/nl"
+	"github.com/currantlabs/netlink/nl"
 )
 
 const (

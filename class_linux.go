@@ -4,7 +4,7 @@ import (
 	"errors"
 	"syscall"
 
-	"github.com/vishvananda/netlink/nl"
+	"github.com/currantlabs/netlink/nl"
 )
 
 // ClassDel will delete a class from the system.
